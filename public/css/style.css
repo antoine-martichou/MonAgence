@@ -1,0 +1,148 @@
+/* NAVBAR */
+.navbar_general
+{
+    background-color: #DDD;
+}
+.navbar_general a
+{
+    color: black;
+}
+
+.block_user
+{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin-left: auto;
+}
+.info_user
+{
+    text-align: center;
+}
+.btn_logout
+{
+    background-color: #ddd;
+    border: 1px solid black;
+}
+.btn_logout:hover
+{
+    background-color: white;
+}
+/* CARD PAGE PROPERTY/INDEX, HOME/INDEX */
+.blockCard
+{
+    border-top: 1px solid #ddd; 
+}
+.cardIndex
+{
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.5);
+}
+.cardTitle
+{
+    margin-bottom: 8px;
+}
+.cardBody
+{
+    padding-bottom: 2px; padding-top: 4px;
+}
+.cardText
+{
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+.btnCard
+{
+    border: 2px solid #ddd;
+    background: #ddd;
+    color: black;
+}
+.btnCard:hover
+{
+    border: 2px solid navy;
+    background: navy;
+    color: #ddd;
+}
+
+/* PAGINATION */
+.pagination
+{
+    display: flex;
+    justify-content: center;
+}
+.page-item.active .page-link
+{
+    color:white;
+    background-color: navy;
+    border-color: navy;
+}
+.page-link
+{
+    color: black;
+    
+}
+.page-link:hover
+{
+    color:navy
+}
+
+/* PAGE PROPERTY/SHOW */
+.bandeauShowProperty
+{
+    
+    background-color: #ddd;
+}
+.blockImgShow
+{
+    display: flex;
+    justify-content: center;
+}
+.imgShow
+{
+    margin-top:15px; margin-bottom: 15px;
+    border: 4px  double rgba(0,0,0,0.6);
+    border-radius: 2px;
+}
+.titreShowProperty h1,h2,.prixShowProperty
+{
+    text-align: center;
+}
+.titreShowProperty h2,.prixShowProperty
+{
+    font-size:22px;
+}
+.prixShowProperty
+{
+    margin-bottom: 4px;
+}
+.contactBoutton
+{
+    display: flex;
+   justify-content: center;
+   color: black;
+}
+.contactBoutton:hover
+{
+    color: white;
+}
+.contactBtn
+{
+    background:#ddd;
+    border: 1px solid navy;
+}
+.contactBtn:hover
+{   
+    background: rgba(0,0,128,0.4);
+}
+
+@media all and (min-width: 10px) and (max-width: 990px)
+{
+    .block_user
+    {
+        margin-left:auto;
+        margin-right: auto;
+        
+    }
+  
+  
+}

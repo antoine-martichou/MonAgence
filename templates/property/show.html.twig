@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid mt-4">
+        
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div><small> Annonce publié le {{ property.createdAt | date('d-m-Y') }} </small></div>
+        <div class="row bandeauShowProperty">
+            <div class="col-lg-8 blockImgShow">
+                <img src="{{ vich_uploader_asset(property, 'imageFile') | imagine_filter('medium') }}"
+                class="imgShow">
+            </div>
+
+            <div class="col-lg-4 titreShowProperty">
+                <h1> {{ property.title }} </h1>
+                <h2> {{ property.rooms }} pièces - {{ property.surface }}m²</h2>
+                <div class=" prixShowProperty"> 
+                    {{ property.formattedPrice }}€ 
+                </div>
+                <div class="contactBoutton">
+                <a class="btn btn-md contactBtn" id="contactButton" {% if  form.vars.submitted %} style="display:none" {% endif %}>Contacter l'agence</a>
+                </div>
+
+                <div id="contactForm" class="mt-4" {% if not form.vars.submitted %} style="display:none" {% endif %}>
+                    <p class="text-center"> Nous contactez pour le bien n°{{ property.id }}</p>
+                    {{ form_start(form) }}
+                        <div class="row">
+                            <div class="col">{{ form_row(form.firstname, {'label': ' Prénom :','attr':{'placeholder': 'Votre Prénom..'}}) }}</div>
+                            <div class="col">{{ form_row(form.lastname, {'label': 'Nom :','attr':{'placeholder': 'Votre nom..'}}) }}</div>   
+                        </div>
+                        <div class="row">
+                            <div class="col">{{ form_row(form.phone, {'label': 'Numéro :','attr':{'placeholder':'Ex:0123456789'}}) }}</div>
+                            <div class="col">{{ form_row(form.email, {'label': 'Email :','attr':{'placeholder': 'Votre email..'}}) }}</div>   
+                        </div>
+                        <div class="row">
+                            <div class="col">{{ form_row(form.message,{'label':'Message :','attr':{'placeholder': 'Votre message' }}) }}</div>   
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-secondary">Envoyer</button>
+                        </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    <div class="container">
+        <hr>
+        <p> 
+            {{ property.description | nl2br }}
+        </p>
+        <hr>
+        <div class="row">
+            <div class="col-lg-6">
+                <h2> Caractèristiques </h2>
+                <table class="table table-striped">
+                    <tr>
+                        <td> Surface habitable </td>
+                        <td> {{ property.surface }}m2 </td>
+                    </tr>
+                    <tr>
+                        <td> Nombre de pièces </td>
+                        <td> {{ property.rooms }} </td>
+                    </tr>
+                    <tr>
+                        <td> Nombre de chambre </td>
+                        <td> {{ property.bedrooms }} </td>
+                    </tr>
+                     <tr>
+                        <td> Etage </td>
+                        <td> {{ property.floor }} </td>
+                    </tr>
+                    <tr>
+                        <td> Chauffage </td>
+                        <td> {{ property.chauffageType }} </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-lg-6">
+                <h2> Spécificités </h2>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon agence - Home{% endblock %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1> Mon Agence </h1>
+    <p> Loremipsumm Loremipsumm Loremipsumm Loremipsumm </p>
+</div>
+<div class="container mt-4">
+        <h1 class="text-center mb-4">Nos derniers biens</h1>
+       <div class="row flex pt-4 pb-4 blockCard">
+            {% for property in properties %}
+                <div class=" col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card cardIndex">
+                        <img src="{{ vich_uploader_asset(property, 'imageFile') | imagine_filter('thumb') }}" class="card-img-top">
+                        <div class="card-body cardBody">
+                            <h5 class="card-title cardTitle">
+                                {{ property.title }} 
+                            </h5>
+                            <p class="card-text cardText">{{ property.surface }}m² - {{ property.city }} ( {{ property.postalCode }} ) </p>
+                            <div class=""> {{ property.formattedPrice }}€ </div>
+                            <div class="mt-4">
+                                <a href="{{ path('property.show', {id: property.id}) }}" class="btn btn-sm btnCard"> Voir plus </a>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+</div>
+{% endblock %}
